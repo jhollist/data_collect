@@ -18,7 +18,7 @@ shinyUI(fluidPage(
       numericInput("age", label = h3("Enter Age"),value = 21 , min = 0, max = 110),
       # Button
       #update button
-      actionButton("actionButtonID","Update Database")
+      actionButton("update_it","Update Database")
     ),
     mainPanel(
         dataTableOutput('mytable3')
