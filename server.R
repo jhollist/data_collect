@@ -22,10 +22,11 @@ shinyServer(function(input, output) {
     
     # Update database: 
     my_df <- isolate({
-      new_row<-data.frame(name=input$name,age=input$age)
-      #my_df<-rbind(my_df,new_row)
-      dbWriteTable(con,"people",new_row,append=TRUE)
-      my_df <- dbReadTable(con,"people")
+      new_row<-data.frame(name=input$name,age=input$age,stringsAsFactors = FALSE)
+      if(all(new_row != data.frame(name="Name",age=21))){
+        dbWriteTable(con,"people",new_row,append=TRUE)
+        my_df <- dbReadTable(con,"people")
+      }
       my_df
     })
   }, options = list(lengthMenu = c(5, 30, 50), pageLength = 5))

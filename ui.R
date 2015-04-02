@@ -13,7 +13,7 @@ shinyUI(fluidPage(
   sidebarLayout(
     sidebarPanel(
       # Name Input
-      textInput("name", label = h3("Enter Name"), value = "Name ..."),
+      textInput("name", label = h3("Enter Name"), value = "Name"),
       # Age Input
       numericInput("age", label = h3("Enter Age"),value = 21 , min = 0, max = 110),
       # Button
